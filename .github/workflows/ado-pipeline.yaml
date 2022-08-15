@@ -27,8 +27,7 @@ env:
   AWS_PRIMARY_REGION: "ap-south-1"
   PYTHON_VERSION: 3.8.x
   NODE_VERSION: "16"
-  REPOSITORY_ID: 524168482
-  BASE_DIRECTORY: "cdk-lambda-layers/cdk-lambda-layers"
+  REPOSITORY_ID: 68633298
 
 
 #==============================================================
