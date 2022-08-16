@@ -34,8 +34,8 @@ env:
 # Build, Test and Deploy
 #==============================================================
 jobs:
-  build_and_test:
-    name: Build and Test
+  build__test_and_deploy:
+    name: Build Test and Deploy
     runs-on: ubuntu-latest
     permissions:
       contents: read
