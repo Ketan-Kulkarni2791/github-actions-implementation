@@ -22,5 +22,5 @@ def main() -> None:
     )
     app.synth()
 
- 
+
 main()
