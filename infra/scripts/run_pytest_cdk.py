@@ -19,7 +19,6 @@ def main() -> None:
     subprocess.check_output(
         f"python -m pytest --cov --cov-report=xml:{covreport} --junitxml={junitxml}",
         shell=True,
-        shell=True,
         stderr=subprocess.STDOUT
     )
 
