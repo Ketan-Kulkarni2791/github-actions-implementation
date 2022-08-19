@@ -76,7 +76,7 @@ jobs:
 
       - name: Prospector Analysis
         run: |
-          python python ${{ env.SCRIPT_DIRECTORY }}/run_prospector.py
+          python ${{ env.SCRIPT_DIRECTORY }}/run_prospector.py
 
       - name: Install Requirements
         run: |
