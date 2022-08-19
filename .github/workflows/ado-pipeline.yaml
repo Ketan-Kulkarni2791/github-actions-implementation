@@ -34,7 +34,7 @@ env:
 # Build, Test and Deploy
 #==============================================================
 jobs:
-  build__test_and_deploy:
+  build_test_and_deploy:
     name: Build Test and Deploy
     runs-on: ubuntu-latest
     permissions:
@@ -72,6 +72,10 @@ jobs:
       - name: Install AWS CDK
         run: |
           npm install -g aws-cdk
+
+      - name: Prospector Analysis
+        run: |
+          python python ${{ env.SCRIPT_DIRECTORY }}/run_prospector.py
 
       - name: Install Requirements
         run: |
