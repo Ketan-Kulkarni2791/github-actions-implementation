@@ -42,6 +42,7 @@ jobs:
       id-token: write
     env:
       BASE_DIRECTORY: "infra/cdk"
+      SCRIPT_DIRECTORY: "infra/scripts"
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
