@@ -3,14 +3,13 @@ CDK application."""
 import logging
 import os
 from pathlib import Path
-from tkinter.tix import InputOnly
 
 ROOT_DIR = Path(__file__).parent.parent.parent
 # print(f"--------- root dir : {ROOT_DIR}")
 
+
 def get_path_for_file(input_file: str) -> bytes:
     """Get relative path to input file."""
-    
     for path, _, files in os.walk(ROOT_DIR):
         for file in files:
             if file == input_file:
@@ -18,9 +17,9 @@ def get_path_for_file(input_file: str) -> bytes:
     logging.info("Could not find path to '%s' file.", input_file)
     return b''
 
+
 def get_path_for_directory(input_dir: str) -> bytes:
     """Get CDK directory path for script."""
-    
     for path, dirs, _ in os.walk(ROOT_DIR):
         for source_dir in dirs:
             if 'cache' not in path and source_dir == input_dir:

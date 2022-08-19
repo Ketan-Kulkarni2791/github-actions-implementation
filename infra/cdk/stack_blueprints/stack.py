@@ -1,7 +1,8 @@
 """Main python file_key for adding resources to the application stack."""
+from typing import Dict, Any
 import aws_cdk
 from constructs import Construct
-from typing import Dict, Any
+
 
 class MainProjectStack(aws_cdk.Stack):
     """Build the app stacks and its resources."""
@@ -16,4 +17,3 @@ class MainProjectStack(aws_cdk.Stack):
     @staticmethod
     def create_stack(stack: aws_cdk.Stack, env: str, config: dict) -> None:
         """Create and add the resources to the application stack"""
-        pass
