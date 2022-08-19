@@ -74,14 +74,14 @@ jobs:
         run: |
           npm install -g aws-cdk
 
-      - name: Prospector Analysis
-        run: |
-          python ${{ env.SCRIPT_DIRECTORY }}/run_prospector.py
-
       - name: Install Requirements
         run: |
           pip install -r requirements.txt
         working-directory: ${{ env.BASE_DIRECTORY }}
+
+      - name: Prospector Analysis
+        run: |
+          python ${{ env.SCRIPT_DIRECTORY }}/run_prospector.py
 
       - name: CDK Synth
         run: cdk synth
