@@ -5,7 +5,6 @@ import os
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).parent.parent.parent
-# print(f"--------- root dir : {ROOT_DIR}")
 
 
 def get_path_for_file(input_file: str) -> bytes:
