@@ -42,7 +42,7 @@ jobs:
       id-token: write
     env:
       BASE_DIRECTORY: "infra/cdk"
-      SCRIPT_DIRECTORY: "infra/scripts"
+      SCRIPT_DIRECTORY: "infra/pipeline/scripts"
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -83,9 +83,13 @@ jobs:
         run: |
           python ${{ env.SCRIPT_DIRECTORY }}/run_prospector.py
 
-      - name: Mypy Type Hinting Analysis
+      # - name: Mypy Type Hinting Analysis
+      #   run: |
+      #     python ${{ env.SCRIPT_DIRECTORY }}/run_mypy.py
+
+      - name: Install Lambda Layer Requirements
         run: |
-          python ${{ env.SCRIPT_DIRECTORY }}/run_mypy.py
+          python ${{ env.SCRIPT_DIRECTORY }}/install_lambda_layer_reqs.py
 
       - name: CDK Synth
         run: cdk synth
@@ -99,6 +103,10 @@ jobs:
         run: |
           python ${{ env.SCRIPT_DIRECTORY }}/run_pytest_config.py
 
+      - name: Install Lambda Requirements
+        run: |
+          python ${{ env.SCRIPT_DIRECTORY }}/install_lambda_reqs.py
+
       - name: CDK Deploy
-        run: cdk deploy
+        run: cdk deploy --require-approval "never"
         working-directory: ${{ env.BASE_DIRECTORY }}
