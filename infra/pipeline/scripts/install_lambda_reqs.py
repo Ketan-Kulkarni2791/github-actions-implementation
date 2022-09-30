@@ -10,7 +10,6 @@ logging.info("Starting script in %s", ROOT_DIR)
 
 
 # noinspection PyTypeChecker
-# pylint: disable=inconsistent-return-statements
 def get_src_directory():
     """Get relative path to /src location."""
     # pylint: disable=inconsistent-return-statements,unused-variable
