@@ -83,9 +83,9 @@ jobs:
         run: |
           python ${{ env.SCRIPT_DIRECTORY }}/run_prospector.py
 
-      # - name: Mypy Type Hinting Analysis
-      #   run: |
-      #     python ${{ env.SCRIPT_DIRECTORY }}/run_mypy.py
+      - name: Mypy Type Hinting Analysis
+        run: |
+          python ${{ env.SCRIPT_DIRECTORY }}/run_mypy.py
 
       - name: Install Lambda Layer Requirements
         run: |
@@ -95,9 +95,13 @@ jobs:
         run: cdk synth
         working-directory: ${{ env.BASE_DIRECTORY }}
 
-      - name: CDK PyTest Runner
+      # - name: CDK PyTest Runner
+      #   run: |
+      #     python ${{ env.SCRIPT_DIRECTORY }}/run_pytest_cdk.py
+
+      - name: PyTest Tolerance Check
         run: |
-          python ${{ env.SCRIPT_DIRECTORY }}/run_pytest_cdk.py
+          pytest --cov=. --junitxml=pytest.xml --cov-report=term-missing:skip-covered --ignore=infra/cdk/cdk.out/ --cov-fail-under=30 .
 
       - name: Config PyTest Runner
         run: |
