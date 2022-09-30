@@ -10,6 +10,7 @@ logging.info("Starting script in %s", ROOT_DIR)
 
 
 # noinspection PyTypeChecker
+# pylint: disable=inconsistent-return-statements, no-untyped-def
 def get_src_directory():
     """Get relative path to /src location."""
     # pylint: disable=inconsistent-return-statements,unused-variable
@@ -31,7 +32,7 @@ def get_lambda_directories(top_level_dir: bytes) -> List[AnyStr]:
 
 
 # noinspection PyTypeChecker
-def install_packages(directory_path):
+def install_packages(directory_path) -> None:
     """Installing packages required for lambda."""
     logging.info("Begginning installation activities for %s", directory_path.rsplit('/', 1)[-1])
     # Navigate to the directory
